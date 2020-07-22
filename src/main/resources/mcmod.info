@@ -1,0 +1,15 @@
+[
+{
+  "modid": "rocksalt",
+  "name": "Rock Salt",
+  "description": "Mrthomas20121 TFC Modding Library",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/Mrthomas20121/rocksalt",
+  "updateUrl": "",
+  "authorList": ["Mrthomas20121"],
+  "credits": "Mrthomas20121",
+  "logoFile": "",
+  "screenshots": []
+}
+]
