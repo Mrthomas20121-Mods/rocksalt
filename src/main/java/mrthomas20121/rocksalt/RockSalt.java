@@ -30,13 +30,10 @@ public class RockSalt
     {
         MinecraftForge.EVENT_BUS.register(this);
         logger = event.getModLog();
-
-        Metal test = MetalUtils.registerMetal("test", Metal.Tier.TIER_I,true, 300f, 200f, 0x01F000);
     }
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        OredictUtils.add("test", "test2");
     }
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)

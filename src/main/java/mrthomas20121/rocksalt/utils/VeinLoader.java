@@ -13,9 +13,9 @@ import static net.dries007.tfc.TerraFirmaCraft.MOD_ID;
 public class VeinLoader
 {
     /**
-     *
+     * load your vein loader
      * @param mod_id your mod id
-     * @param dir Basically Config Folder
+     * @param dir Config Folder
      * @param jsonFile name of the json file. must contain .json
      */
     public static void preInit(String mod_id, File dir, String jsonFile)

@@ -14,6 +14,11 @@ import javax.annotation.Nonnull;
 
 public class MetalUtils {
 
+    public static String getPath(Metal metal)
+    {
+        return metal.getRegistryName().getPath();
+    }
+
     public static Metal getMetal(String name)
     {
         return TFCRegistries.METALS.getValue(TFCUtils.getLoc(name));
