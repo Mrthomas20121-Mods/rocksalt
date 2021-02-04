@@ -1,11 +1,15 @@
 package mrthomas20121.rocksalt;
 
 
-import mrthomas20121.rocksalt.utils.MetalUtils;
+import mrthomas20121.rocksalt.utils.AnvilUtils;
+import net.dries007.tfc.api.recipes.BloomeryRecipe;
+import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
 import net.dries007.tfc.api.registries.TFCRegistryEvent;
 import net.dries007.tfc.api.types.Metal;
 import net.dries007.tfc.api.types.Ore;
 import net.dries007.tfc.api.types.Rock;
+import net.dries007.tfc.util.fuel.FuelManager;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -51,18 +55,48 @@ public class RegistryHandler {
     public static void onPreRegisterMetal(TFCRegistryEvent.RegisterPreBlock<Metal> event)
     {
         IForgeRegistry<Metal> r = event.getRegistry();
-        for(Metal metal : getMetals())
+        for(Metal metal : metals)
         {
             r.register(metal);
         }
     }
+
     @SubscribeEvent
     public static void onPreRegisterRock(TFCRegistryEvent.RegisterPreBlock<Rock> event)
     {
         IForgeRegistry<Rock> r = event.getRegistry();
-        for(Rock rock : getRocks())
+        for(Rock rock : rocks)
         {
             r.register(rock);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    @SubscribeEvent
+    public static void onRegisterAnvilRecipeEvent(RegistryEvent.Register<AnvilRecipe> event)
+    {
+        IForgeRegistry<AnvilRecipe> r = event.getRegistry();
+        for(Metal metal : getMetals())
+        {
+            if(metal.getTier()== Metal.Tier.TIER_III)
+            {
+                r.register(AnvilUtils.createBloomRecipe(metal));
+            }
+        }
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    @SubscribeEvent
+    public static void onRegisterBloomeryRecipeEvent(RegistryEvent.Register<BloomeryRecipe> event)
+    {
+        IForgeRegistry<BloomeryRecipe> r = event.getRegistry();
+
+        for(Metal metal : getMetals())
+        {
+            if(metal.getTier()== Metal.Tier.TIER_III)
+            {
+                r.register(new BloomeryRecipe(metal, FuelManager::isItemBloomeryFuel));
+            }
         }
     }
 }

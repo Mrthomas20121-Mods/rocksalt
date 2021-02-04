@@ -14,6 +14,7 @@ import net.dries007.tfc.util.skills.SmithingSkill;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.IForgeRegistryModifiable;
 
 import javax.annotation.Nullable;
@@ -25,7 +26,7 @@ import static net.dries007.tfc.util.forge.ForgeRule.HIT_THIRD_LAST;
 
 public class AnvilUtils {
 
-    public static void removeRecipe(IForgeRegistry<AnvilRecipe> r, ResourceLocation location)
+    public static <T extends IForgeRegistryEntry<T>> void removeRecipe(IForgeRegistry<T> r, ResourceLocation location)
     {
         IForgeRegistryModifiable registry = (IForgeRegistryModifiable)r;
         registry.remove(location);
@@ -37,7 +38,7 @@ public class AnvilUtils {
     }
     public static AnvilRecipe createBloomRecipe(Metal metal)
     {
-        return new AnvilRecipe(new ResourceLocation(TerraFirmaCraft.MOD_ID, MetalUtils.getPath(metal)+"_bloom"), x ->
+        return new AnvilRecipe(new ResourceLocation(TerraFirmaCraft.MOD_ID, Metaling.getPath(metal)+"_bloom"), x ->
         {
             if (x.getItem() == ItemsTFC.REFINED_BLOOM)
             {
@@ -52,6 +53,6 @@ public class AnvilUtils {
     }
     public static AnvilRecipe createBloomRecipe(String metal)
     {
-        return createBloomRecipe(MetalUtils.getMetal(metal));
+        return createBloomRecipe(Metaling.getMetal(metal));
     }
 }
