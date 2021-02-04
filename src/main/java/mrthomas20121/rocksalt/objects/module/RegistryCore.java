@@ -1,6 +1,6 @@
 package mrthomas20121.rocksalt.objects.module;
 
-import mrthomas20121.rocksalt.utils.Crafting;
+import mrthomas20121.rocksalt.Utils;
 import net.dries007.tfc.api.recipes.WeldingRecipe;
 import net.dries007.tfc.api.recipes.anvil.AnvilRecipe;
 import net.dries007.tfc.api.recipes.barrel.BarrelRecipe;
@@ -31,7 +31,7 @@ public abstract class RegistryCore {
     public abstract void registerRecipes(IForgeRegistry<IRecipe> r);
 
     public void removeRecipes(IForgeRegistry<IRecipe> r) {
-        recipesToRemove.forEach((recipe) -> Crafting.removeRecipe(r, recipe));
+        recipesToRemove.forEach((recipe) -> Utils.removeRecipe(r, recipe));
     }
 
     public void registerAnvilRecipes(IForgeRegistry<AnvilRecipe> r) {

@@ -1,4 +1,4 @@
-package mrthomas20121.rocksalt.utils;
+package mrthomas20121.rocksalt;
 
 import java.io.File;
 import java.io.IOException;

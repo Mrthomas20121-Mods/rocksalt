@@ -6,6 +6,9 @@ import net.dries007.tfc.api.registries.TFCRegistries;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import java.util.ArrayList;
@@ -30,7 +33,19 @@ public class ModuleManager {
         }
     }
 
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+    public void preInit(FMLPreInitializationEvent event) {
+        modules.forEach(moduleCore -> moduleCore.preInit(event));
+    }
+
+    public void init(FMLInitializationEvent event) {
+        modules.forEach(moduleCore -> moduleCore.init(event));
+    }
+
+    public void postInit(FMLPostInitializationEvent event) {
+        modules.forEach(moduleCore -> moduleCore.postInit(event));
+    }
+
+    public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
         IForgeRegistry<IRecipe> r = event.getRegistry();
         modules.forEach(moduleCore -> {
             moduleCore.getRegistry().registerRecipes(r);
