@@ -6,16 +6,16 @@ pluginManagement {
             }
         }
     }
+
     repositories {
-        jcenter()
         mavenLocal()
         gradlePluginPortal()
         maven {
-            url 'https://files.minecraftforge.net/maven'
+            url = uri("https://maven.minecraftforge.net/")
         }
         maven {
-            name 'FancyGradle'
-            url 'https://gitlab.com/api/v4/projects/26758973/packages/maven'
+            name = "FancyGradle"
+            url = uri("https://gitlab.com/api/v4/projects/26758973/packages/maven")
         }
     }
 }
