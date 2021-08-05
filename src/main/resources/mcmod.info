@@ -1,7 +1,7 @@
 [
 {
   "modid": "rocksalt",
-  "name": "Rock Salt",
+  "name": "Rocksalt",
   "description": "Mrthomas20121 TFC Modding Library",
   "version": "${version}",
   "mcversion": "${mcversion}",
