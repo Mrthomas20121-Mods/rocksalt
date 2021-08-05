@@ -85,7 +85,7 @@ tasks {
         inputs.property("version", project.version)
 
         filesMatching("mcmod.info") {
-            expand("version" to project.version)
+            expand("version" to project.version,"mcversion" to "1.12.2")
         }
     }
 }
