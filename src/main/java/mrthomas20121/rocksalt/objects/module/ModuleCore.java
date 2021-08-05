@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public abstract class ModuleCore {
 
-    private ResourceLocation name;
+    private final ResourceLocation name;
     private RegistryCore registry;
 
     public ModuleCore(ResourceLocation name) {
