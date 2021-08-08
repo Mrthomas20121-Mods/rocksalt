@@ -14,7 +14,7 @@ public class RockSalt
 {
     public static final String MODID = "rocksalt";
     public static final String NAME = "Rocksalt";
-    public static final String VERSION = "1.0.3";
+    public static final String VERSION = "1.0.4";
 
     private static Logger logger;
 
